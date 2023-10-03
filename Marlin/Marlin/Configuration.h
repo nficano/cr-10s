@@ -1,24 +1,3 @@
-/**
- * Marlin 3D Printer Firmware
- * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
 #pragma once
 
 #define CONFIG_EXAMPLES_DIR "Creality/CR-10S/CrealityV1"
@@ -39,32 +18,9 @@
  */
 #define CONFIGURATION_H_VERSION 02010300
 
-//===========================================================================
-//============================= Getting Started =============================
-//===========================================================================
-
-/**
- * Here are some useful links to help get your machine configured and calibrated:
- *
- * Example Configs:     https://github.com/MarlinFirmware/Configurations/branches/all
- *
- * Průša Calculator:    https://blog.prusa3d.com/calculator_3416/
- *
- * Calibration Guides:  https://reprap.org/wiki/Calibration
- *                      https://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
- *                      https://web.archive.org/web/20220907014303/https://sites.google.com/site/repraplogphase/calibration-of-your-reprap
- *                      https://youtu.be/wAL9d7FgInk
- *                      https://teachingtechyt.github.io/calibration.html
- *
- * Calibration Objects: https://www.thingiverse.com/thing:5573
- *                      https://www.thingiverse.com/thing:1278865
- */
-
 // @section info
 
-// Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(printedsolid.com, CR-10S)" // Who made the changes.
-// #define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
+#define STRING_CONFIG_H_AUTHOR "Nick Ficano <nficano@gmail.com>"
 
 // @section machine
 
@@ -73,52 +29,9 @@
 #define MOTHERBOARD BOARD_RAMPS_CREALITY
 #endif
 
-/**
- * Select the serial port on the board to use for communication with the host.
- * This allows the connection of wireless adapters (for instance) to non-default port pins.
- * Serial port -1 is the USB emulated serial port, if available.
- * Note: The first serial port (-1 or 0) will always be used by the Arduino bootloader.
- *
- * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
- */
 #define SERIAL_PORT 0
-
-/**
- * Serial Port Baud Rate
- * This is the default communication speed for all serial ports.
- * Set the baud rate defaults for additional serial ports below.
- *
- * 250000 works in most cases, but you might try a lower speed if
- * you commonly experience drop-outs during host printing.
- * You may try up to 1000000 to speed up SD file transfer.
- *
- * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
- */
 #define BAUDRATE 115200
 
-// #define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
-
-/**
- * Select a secondary serial port on the board to use for communication with the host.
- * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
- * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
- */
-// #define SERIAL_PORT_2 -1
-// #define BAUDRATE_2 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
-
-/**
- * Select a third serial port on the board to use for communication with the host.
- * Currently only supported for AVR, DUE, LPC1768/9 and STM32/STM32F1
- * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
- */
-// #define SERIAL_PORT_3 1
-// #define BAUDRATE_3 250000   // :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
-
-/**
- * Select a serial port to communicate with RS485 protocol
- * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
- */
-// #define RS485_SERIAL_PORT 1
 #ifdef RS485_SERIAL_PORT
 // #define RS485_BUS_BUFFER_SIZE 128
 #endif
@@ -131,47 +44,13 @@
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
-// #define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
+#define MACHINE_UUID "43e6de06-ace4-4ef5-9cde-9fe7289dd5e5"
 
-// @section stepper drivers
-
-/**
- * Stepper Drivers
- *
- * These settings allow Marlin to tune stepper driver timing and enable advanced options for
- * stepper drivers that support them. You may also override timing options in Configuration_adv.h.
- *
- * Use TMC2208/TMC2208_STANDALONE for TMC2225 drivers and TMC2209/TMC2209_STANDALONE for TMC2226 drivers.
- *
- * Options: A4988, A5984, DRV8825, LV8729, TB6560, TB6600, TMC2100,
- *          TMC2130, TMC2130_STANDALONE, TMC2160, TMC2160_STANDALONE,
- *          TMC2208, TMC2208_STANDALONE, TMC2209, TMC2209_STANDALONE,
- *          TMC26X,  TMC26X_STANDALONE,  TMC2660, TMC2660_STANDALONE,
- *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
- * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
- */
+// Stepper drivers
 #define X_DRIVER_TYPE TMC2208_STANDALONE
 #define Y_DRIVER_TYPE TMC2208_STANDALONE
 #define Z_DRIVER_TYPE TMC2208_STANDALONE
-// #define X2_DRIVER_TYPE TMC2208
-// #define Y2_DRIVER_TYPE TMC2208
-// #define Z2_DRIVER_TYPE TMC2208
-// #define Z3_DRIVER_TYPE TMC2208
-// #define Z4_DRIVER_TYPE TMC2208
-// #define I_DRIVER_TYPE  TMC2208
-// #define J_DRIVER_TYPE  TMC2208
-// #define K_DRIVER_TYPE  TMC2208
-// #define U_DRIVER_TYPE  TMC2208
-// #define V_DRIVER_TYPE  TMC2208
-// #define W_DRIVER_TYPE  TMC2208
 #define E0_DRIVER_TYPE TMC2208_STANDALONE
-// #define E1_DRIVER_TYPE TMC2208
-// #define E2_DRIVER_TYPE TMC2208
-// #define E3_DRIVER_TYPE TMC2208
-// #define E4_DRIVER_TYPE TMC2208
-// #define E5_DRIVER_TYPE TMC2208
-// #define E6_DRIVER_TYPE TMC2208
-// #define E7_DRIVER_TYPE TMC2208
 
 /**
  * Additional Axis Settings
@@ -457,121 +336,7 @@
 #endif
 #endif
 
-//===========================================================================
-//============================= Thermal Settings ============================
-//===========================================================================
-// @section temperature
-
-/**
- * Temperature Sensors:
- *
- * NORMAL IS 4.7kΩ PULLUP! Hotend sensors can use 1kΩ pullup with correct resistor and table.
- *
- * ================================================================
- *  Analog Thermistors - 4.7kΩ pullup - Normal
- * ================================================================
- *     1 : 100kΩ EPCOS - Best choice for EPCOS thermistors
- *   331 : 100kΩ Same as #1, but 3.3V scaled for MEGA
- *   332 : 100kΩ Same as #1, but 3.3V scaled for DUE
- *     2 : 200kΩ ATC Semitec 204GT-2
- *   202 : 200kΩ Copymaster 3D
- *     3 : ???Ω  Mendel-parts thermistor
- *     4 : 10kΩ  Generic Thermistor !! DO NOT use for a hotend - it gives bad resolution at high temp. !!
- *     5 : 100kΩ ATC Semitec 104GT-2/104NT-4-R025H42G - Used in ParCan, J-Head, and E3D, SliceEngineering 300°C
- *   501 : 100kΩ Zonestar - Tronxy X3A
- *   502 : 100kΩ Zonestar - used by hot bed in Zonestar Průša P802M
- *   503 : 100kΩ Zonestar (Z8XM2) Heated Bed thermistor
- *   504 : 100kΩ Zonestar P802QR2 (Part# QWG-104F-B3950) Hotend Thermistor
- *   505 : 100kΩ Zonestar P802QR2 (Part# QWG-104F-3950) Bed Thermistor
- *   512 : 100kΩ RPW-Ultra hotend
- *     6 : 100kΩ EPCOS - Not as accurate as table #1 (created using a fluke thermocouple)
- *     7 : 100kΩ Honeywell 135-104LAG-J01
- *    71 : 100kΩ Honeywell 135-104LAF-J01
- *     8 : 100kΩ Vishay 0603 SMD NTCS0603E3104FXT
- *     9 : 100kΩ GE Sensing AL03006-58.2K-97-G1
- *    10 : 100kΩ RS PRO 198-961
- *    11 : 100kΩ Keenovo AC silicone mats, most Wanhao i3 machines - beta 3950, 1%
- *    12 : 100kΩ Vishay 0603 SMD NTCS0603E3104FXT (#8) - calibrated for Makibox hot bed
- *    13 : 100kΩ Hisens up to 300°C - for "Simple ONE" & "All In ONE" hotend - beta 3950, 1%
- *    14 : 100kΩ  (R25), 4092K (beta25), 4.7kΩ pull-up, bed thermistor as used in Ender-5 S1
- *    15 : 100kΩ Calibrated for JGAurora A5 hotend
- *    17 : 100kΩ Dagoma NTC white thermistor
- *    18 : 200kΩ ATC Semitec 204GT-2 Dagoma.Fr - MKS_Base_DKU001327
- *    22 : 100kΩ GTM32 Pro vB - hotend - 4.7kΩ pullup to 3.3V and 220Ω to analog input
- *    23 : 100kΩ GTM32 Pro vB - bed - 4.7kΩ pullup to 3.3v and 220Ω to analog input
- *    30 : 100kΩ Kis3d Silicone heating mat 200W/300W with 6mm precision cast plate (EN AW 5083) NTC100K - beta 3950
- *    60 : 100kΩ Maker's Tool Works Kapton Bed Thermistor - beta 3950
- *    61 : 100kΩ Formbot/Vivedino 350°C Thermistor - beta 3950
- *    66 : 4.7MΩ Dyze Design / Trianglelab T-D500 500°C High Temperature Thermistor
- *    67 : 500kΩ SliceEngineering 450°C Thermistor
- *    68 : PT100 Smplifier board from Dyze Design
- *    70 : 100kΩ bq Hephestos 2
- *    75 : 100kΩ Generic Silicon Heat Pad with NTC100K MGB18-104F39050L32
- *   666 : 200kΩ Einstart S custom thermistor with 10k pullup.
- *  2000 : 100kΩ Ultimachine Rambo TDK NTCG104LH104KT1 NTC100K motherboard Thermistor
- *
- * ================================================================
- *  Analog Thermistors - 1kΩ pullup
- *   Atypical, and requires changing out the 4.7kΩ pullup for 1kΩ.
- *   (but gives greater accuracy and more stable PID)
- * ================================================================
- *    51 : 100kΩ EPCOS (1kΩ pullup)
- *    52 : 200kΩ ATC Semitec 204GT-2 (1kΩ pullup)
- *    55 : 100kΩ ATC Semitec 104GT-2 - Used in ParCan & J-Head (1kΩ pullup)
- *
- * ================================================================
- *  Analog Thermistors - 10kΩ pullup - Atypical
- * ================================================================
- *    99 : 100kΩ Found on some Wanhao i3 machines with a 10kΩ pull-up resistor
- *
- * ================================================================
- *  Analog RTDs (Pt100/Pt1000)
- * ================================================================
- *   110 : Pt100  with 1kΩ pullup (atypical)
- *   147 : Pt100  with 4.7kΩ pullup
- *  1010 : Pt1000 with 1kΩ pullup (atypical)
- *  1022 : Pt1000 with 2.2kΩ pullup
- *  1047 : Pt1000 with 4.7kΩ pullup (E3D)
- *    20 : Pt100  with circuit in the Ultimainboard V2.x with mainboard ADC reference voltage = INA826 amplifier-board supply voltage.
- *                NOTE: (1) Must use an ADC input with no pullup. (2) Some INA826 amplifiers are unreliable at 3.3V so consider using sensor 147, 110, or 21.
- *    21 : Pt100  with circuit in the Ultimainboard V2.x with 3.3v ADC reference voltage (STM32, LPC176x....) and 5V INA826 amplifier board supply.
- *                NOTE: ADC pins are not 5V tolerant. Not recommended because it's possible to damage the CPU by going over 500°C.
- *   201 : Pt100  with circuit in Overlord, similar to Ultimainboard V2.x
- *
- * ================================================================
- *  SPI RTD/Thermocouple Boards
- * ================================================================
- *    -5 : MAX31865 with Pt100/Pt1000, 2, 3, or 4-wire  (only for sensors 0-1)
- *                  NOTE: You must uncomment/set the MAX31865_*_OHMS_n defines below.
- *    -3 : MAX31855 with Thermocouple, -200°C to +700°C (only for sensors 0-1)
- *    -2 : MAX6675  with Thermocouple, 0°C to +700°C    (only for sensors 0-1)
- *
- *  NOTE: Ensure TEMP_n_CS_PIN is set in your pins file for each TEMP_SENSOR_n using an SPI Thermocouple. By default,
- *        Hardware SPI on the default serial bus is used. If you have also set TEMP_n_SCK_PIN and TEMP_n_MISO_PIN,
- *        Software SPI will be used on those ports instead. You can force Hardware SPI on the default bus in the
- *        Configuration_adv.h file. At this time, separate Hardware SPI buses for sensors are not supported.
- *
- * ================================================================
- *  Analog Thermocouple Boards
- * ================================================================
- *    -4 : AD8495 with Thermocouple
- *    -1 : AD595  with Thermocouple
- *
- * ================================================================
- *  SoC internal sensor
- * ================================================================
- *   100 : SoC internal sensor
- *
- * ================================================================
- *  Custom/Dummy/Other Thermal Sensors
- * ================================================================
- *     0 : not used
- *  1000 : Custom - Specify parameters in Configuration_adv.h
- *
- *   !!! Use these for Testing or Development purposes. NEVER for production machine. !!!
- *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
- *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
- */
+// Temperature Sensors:
 #define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
@@ -911,44 +676,12 @@
 #define PREVENT_LENGTHY_EXTRUDE
 #define EXTRUDE_MAXLENGTH 435
 
-//===========================================================================
-//======================== Thermal Runaway Protection =======================
-//===========================================================================
-
-/**
- * Thermal Protection provides additional protection to your printer from damage
- * and fire. Marlin always includes safe min and max temperature ranges which
- * protect against a broken or disconnected thermistor wire.
- *
- * The issue: If a thermistor falls out, it will report the much lower
- * temperature of the air in the room, and the the firmware will keep
- * the heater on.
- *
- * If you get "Thermal Runaway" or "Heating failed" errors the
- * details can be tuned in Configuration_adv.h
- */
-
+// Thermal Protection
 #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
 #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
-// #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
-#define THERMAL_PROTECTION_COOLER // Enable thermal protection for the laser cooling
+#define THERMAL_PROTECTION_COOLER  // Enable thermal protection for the laser cooling
 
-//===========================================================================
-//============================= Mechanical Settings =========================
-//===========================================================================
-
-// @section machine
-
-// Enable one of the options below for CoreXY, CoreXZ, or CoreYZ kinematics,
-// either in the usual order or reversed
-// #define COREXY
-// #define COREXZ
-// #define COREYZ
-// #define COREYX
-// #define COREZX
-// #define COREZY
-// #define MARKFORGED_XY  // MarkForged. See https://reprap.org/forum/read.php?152,504042
-// #define MARKFORGED_YX
+// Mechanical Settings
 
 // Enable for a belt style printer with endless "Z" motion
 // #define BELTPRINTER
@@ -974,14 +707,6 @@
 
 // After homing move down to a height where XY movement is unconstrained
 // #define DELTA_HOME_TO_SAFE_ZONE
-
-// Delta calibration menu
-// Add three-point calibration to the MarlinUI menu.
-// See http://minow.blogspot.com/index.html#4918805519571907051
-// #define DELTA_CALIBRATION_MENU
-
-// G33 Delta Auto-Calibration. Enable EEPROM_SETTINGS to store results.
-// #define DELTA_AUTO_CALIBRATION
 
 #if ENABLED(DELTA_AUTO_CALIBRATION)
 // Default number of probe points : n*n (1 -> 7)
@@ -1026,16 +751,8 @@
 // #define DELTA_DIAGONAL_ROD_TRIM_TOWER { 0.0, 0.0, 0.0 }
 #endif
 
-// @section scara
+// Scara
 
-/**
- * MORGAN_SCARA was developed by QHARLEY in South Africa in 2012-2013.
- * Implemented and slightly reworked by JCERNY in June, 2014.
- *
- * Mostly Printed SCARA is an open source design by Tyler Williams. See:
- *   https://www.thingiverse.com/thing:2487048
- *   https://www.thingiverse.com/thing:1241491
- */
 // #define MORGAN_SCARA
 // #define MP_SCARA
 #if ANY(MORGAN_SCARA, MP_SCARA)
@@ -1609,9 +1326,9 @@
   }
 #define Z_PROBE_ALLEN_KEY_DEPLOY_2_FEEDRATE (XY_PROBE_FEEDRATE) / 10
 
-#define Z_PROBE_ALLEN_KEY_DEPLOY_3        \
-  {                                       \
-    0.0, (PRINTABLE_RADIUS) * 0.75, 100.0 \
+#define Z_PROBE_ALLEN_KEY_DEPLOY_3      \
+  {                                     \
+    0.0, (PRINTABLE_RADIUS)*0.75, 100.0 \
   }
 #define Z_PROBE_ALLEN_KEY_DEPLOY_3_FEEDRATE XY_PROBE_FEEDRATE
 
@@ -2285,17 +2002,17 @@
   {                                                                             \
     (X_BED_SIZE) / 4 - (CLIP_W) / 2, 0, (X_BED_SIZE) / 4 + (CLIP_W) / 2, CLIP_H \
   }
-#define OBSTACLE2                                                                       \
-  {                                                                                     \
-    (X_BED_SIZE) * 3 / 4 - (CLIP_W) / 2, 0, (X_BED_SIZE) * 3 / 4 + (CLIP_W) / 2, CLIP_H \
+#define OBSTACLE2                                                                     \
+  {                                                                                   \
+    (X_BED_SIZE) * 3 / 4 - (CLIP_W) / 2, 0, (X_BED_SIZE)*3 / 4 + (CLIP_W) / 2, CLIP_H \
   }
 #define OBSTACLE3                                                                                         \
   {                                                                                                       \
     (X_BED_SIZE) / 4 - (CLIP_W) / 2, (Y_BED_SIZE) - (CLIP_H), (X_BED_SIZE) / 4 + (CLIP_W) / 2, Y_BED_SIZE \
   }
-#define OBSTACLE4                                                                                                 \
-  {                                                                                                               \
-    (X_BED_SIZE) * 3 / 4 - (CLIP_W) / 2, (Y_BED_SIZE) - (CLIP_H), (X_BED_SIZE) * 3 / 4 + (CLIP_W) / 2, Y_BED_SIZE \
+#define OBSTACLE4                                                                                               \
+  {                                                                                                             \
+    (X_BED_SIZE) * 3 / 4 - (CLIP_W) / 2, (Y_BED_SIZE) - (CLIP_H), (X_BED_SIZE)*3 / 4 + (CLIP_W) / 2, Y_BED_SIZE \
   }
 
 // The probed grid must be inset for G29 J. This is okay, since it is
