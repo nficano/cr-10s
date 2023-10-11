@@ -19,6 +19,10 @@ M500        ; save current setup
 
 ## Cura settings
 
+### Setting recommendations
+
+- [Reddit: Post your cura settings](https://www.reddit.com/r/CR10/comments/857kj7/post_your_cura_settings/)
+
 ### Start G-code
 
 ```gcode
