@@ -5,6 +5,7 @@
 ### Tutorials
 
 - [Youtube: 6 steps to perfection](https://www.youtube.com/watch?v=zKpNxqWie_8)
+- [Youtube: BL-Touch center offset](https://www.youtube.com/watch?v=IzG-KIC38NE)
 
 ### Macros
 
@@ -63,3 +64,7 @@ M140 S0 ;Turn-off bed
 
 M84 X Y E ;Disable all steppers but Z
 ```
+
+## Smoothing Prints
+
+- [Instructables: Easy Way to Smooth PLA](https://www.instructables.com/Easy-Way-to-Smooth-PLA-No-Sanding-No-Chemicals/)
