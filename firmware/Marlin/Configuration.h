@@ -63,7 +63,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(printedsolid.com, CR-10S)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Nick Ficano, CR-10S)" // Who made the changes.
 // #define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 // @section machine
@@ -240,8 +240,7 @@
 #define SWITCHING_EXTRUDER_SERVO_NR 0
 #define SWITCHING_EXTRUDER_SERVO_ANGLES \
   {                                     \
-    0, 90                               \
-  } // Angles for E0, E1[, E2, E3]
+      0, 90} // Angles for E0, E1[, E2, E3]
 #if EXTRUDERS > 3
 #define SWITCHING_EXTRUDER_E23_SERVO_NR 1
 #endif
@@ -260,8 +259,7 @@
 // #define SWITCHING_NOZZLE_E1_SERVO_NR 1          // If two servos are used, the index of the second
 #define SWITCHING_NOZZLE_SERVO_ANGLES \
   {                                   \
-    0, 90                             \
-  }                                       // Angles for E0, E1 (single servo) or lowered/raised (dual servo)
+      0, 90}                              // Angles for E0, E1 (single servo) or lowered/raised (dual servo)
 #define SWITCHING_NOZZLE_SERVO_DWELL 2500 // Dwell time to wait for servo to make physical move
 #endif
 
@@ -288,8 +286,7 @@
 
 #define PARKING_EXTRUDER_PARKING_X \
   {                                \
-    -78, 184                       \
-  }                                      // X positions for parking the extruders
+      -78, 184}                          // X positions for parking the extruders
 #define PARKING_EXTRUDER_GRAB_DISTANCE 1 // (mm) Distance to move beyond the parking point to grab the extruder
 
 #if ENABLED(PARKING_EXTRUDER)
@@ -341,20 +338,17 @@
 #define SWITCHING_TOOLHEAD_Y_CLEAR 60    // (mm) Minimum distance from dock for unobstructed X axis
 #define SWITCHING_TOOLHEAD_X_POS \
   {                              \
-    215, 0                       \
-  } // (mm) X positions for parking the extruders
+      215, 0} // (mm) X positions for parking the extruders
 #if ENABLED(SWITCHING_TOOLHEAD)
 #define SWITCHING_TOOLHEAD_SERVO_NR 2 // Index of the servo connector
 #define SWITCHING_TOOLHEAD_SERVO_ANGLES \
   {                                     \
-    0, 180                              \
-  } // (degrees) Angles for Lock, Unlock
+      0, 180} // (degrees) Angles for Lock, Unlock
 #elif ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)
 #define SWITCHING_TOOLHEAD_Y_RELEASE 5 // (mm) Security distance Y axis
 #define SWITCHING_TOOLHEAD_X_SECURITY \
   {                                   \
-    90, 150                           \
-  } // (mm) Security distance X axis (T0,T1)
+      90, 150} // (mm) Security distance X axis (T0,T1)
 // #define PRIME_BEFORE_REMOVE                       // Prime the nozzle before release from the dock
 #if ENABLED(PRIME_BEFORE_REMOVE)
 #define SWITCHING_TOOLHEAD_PRIME_MM 20           // (mm)   Extruder prime length
@@ -706,16 +700,13 @@
 // If there are fewer values, the last one applies to the remaining hotends.
 #define DEFAULT_Kp_LIST \
   {                     \
-    22.20, 22.20        \
-  }
+      22.20, 22.20}
 #define DEFAULT_Ki_LIST \
   {                     \
-    1.08, 1.08          \
-  }
+      1.08, 1.08}
 #define DEFAULT_Kd_LIST \
   {                     \
-    114.00, 114.00      \
-  }
+      114.00, 114.00}
 #else
 #define DEFAULT_Kp 22.20
 #define DEFAULT_Ki 1.08
@@ -741,29 +732,24 @@
 #define MPC_MAX 255 // (0..255) Current to nozzle while MPC is active.
 #define MPC_HEATER_POWER \
   {                      \
-    40.0f                \
-  } // (W) Heat cartridge powers.
+      40.0f} // (W) Heat cartridge powers.
 
 #define MPC_INCLUDE_FAN // Model the fan speed?
 
 // Measured physical constants from M306
 #define MPC_BLOCK_HEAT_CAPACITY \
   {                             \
-    16.7f                       \
-  } // (J/K) Heat block heat capacities.
+      16.7f} // (J/K) Heat block heat capacities.
 #define MPC_SENSOR_RESPONSIVENESS \
   {                               \
-    0.22f                         \
-  } // (K/s per ∆K) Rate of change of sensor temperature from heat block.
+      0.22f} // (K/s per ∆K) Rate of change of sensor temperature from heat block.
 #define MPC_AMBIENT_XFER_COEFF \
   {                            \
-    0.068f                     \
-  } // (W/K) Heat transfer coefficients from heat block to room air with fan off.
+      0.068f} // (W/K) Heat transfer coefficients from heat block to room air with fan off.
 #if ENABLED(MPC_INCLUDE_FAN)
 #define MPC_AMBIENT_XFER_COEFF_FAN255 \
   {                                   \
-    0.097f                            \
-  } // (W/K) Heat transfer coefficients from heat block to room air with fan on full.
+      0.097f} // (W/K) Heat transfer coefficients from heat block to room air with fan on full.
 #endif
 
 // For one fan and multiple hotends MPC needs to know how to apply the fan cooling effect.
@@ -776,22 +762,20 @@
 // Set at runtime with M306 H<value>
 #define FILAMENT_HEAT_CAPACITY_PERMM \
   {                                  \
-    5.6e-3f                          \
-  } // 0.0056 J/K/mm for 1.75mm PLA (0.0149 J/K/mm for 2.85mm PLA).
-    // 0.0036 J/K/mm for 1.75mm PETG (0.0094 J/K/mm for 2.85mm PETG).
-    // 0.00515 J/K/mm for 1.75mm ABS (0.0137 J/K/mm for 2.85mm ABS).
-    // 0.00522 J/K/mm for 1.75mm Nylon (0.0138 J/K/mm for 2.85mm Nylon).
+      5.6e-3f} // 0.0056 J/K/mm for 1.75mm PLA (0.0149 J/K/mm for 2.85mm PLA).
+               // 0.0036 J/K/mm for 1.75mm PETG (0.0094 J/K/mm for 2.85mm PETG).
+               // 0.00515 J/K/mm for 1.75mm ABS (0.0137 J/K/mm for 2.85mm ABS).
+               // 0.00522 J/K/mm for 1.75mm Nylon (0.0138 J/K/mm for 2.85mm Nylon).
 
 // Advanced options
 #define MPC_SMOOTHING_FACTOR 0.5f   // (0.0...1.0) Noisy temperature sensors may need a lower value for stabilization.
 #define MPC_MIN_AMBIENT_CHANGE 1.0f // (K/s) Modeled ambient temperature rate of change, when correcting model inaccuracies.
 #define MPC_STEADYSTATE 0.5f        // (K/s) Temperature change rate for steady state logic to be enforced.
 
-#define MPC_TUNING_POS       \
-  {                          \
-    X_CENTER, Y_CENTER, 1.0f \
-  }                            // (mm) M306 Autotuning position, ideally bed center at first layer height.
-#define MPC_TUNING_END_Z 10.0f // (mm) M306 Autotuning final Z position.
+#define MPC_TUNING_POS \
+  {                    \
+      X_CENTER, Y_CENTER, 1.0f} // (mm) M306 Autotuning position, ideally bed center at first layer height.
+#define MPC_TUNING_END_Z 10.0f  // (mm) M306 Autotuning final Z position.
 #endif
 
 //===========================================================================
@@ -1007,8 +991,7 @@
 
 #define DELTA_ENDSTOP_ADJ \
   {                       \
-    0.0, 0.0, 0.0         \
-  } // Get these values from G33 auto calibrate
+      0.0, 0.0, 0.0} // Get these values from G33 auto calibrate
 
 // Horizontal distance bridged by diagonal push rods when effector is centered.
 #define DELTA_RADIUS 124.0 // (mm) Get this value from G33 auto calibrate
@@ -1018,8 +1001,7 @@
 // measured in degrees anticlockwise looking from above the printer
 #define DELTA_TOWER_ANGLE_TRIM \
   {                            \
-    0.0, 0.0, 0.0              \
-  } // Get these values from G33 auto calibrate
+      0.0, 0.0, 0.0} // Get these values from G33 auto calibrate
 
 // Delta radius and diagonal rod adjustments (mm)
 // #define DELTA_RADIUS_TRIM_TOWER { 0.0, 0.0, 0.0 }
@@ -1289,8 +1271,7 @@
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
   {                                 \
-    80, 80, 400, 95                 \
-  }
+      80, 80, 400, 95}
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1299,15 +1280,13 @@
  */
 #define DEFAULT_MAX_FEEDRATE \
   {                          \
-    2500, 2500, 100, 25      \
-  }
+      2500, 2500, 100, 25}
 
 // #define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
 #define MAX_FEEDRATE_EDIT_VALUES \
   {                              \
-    600, 600, 10, 50             \
-  } // ...or, set your own edit limits
+      600, 600, 10, 50} // ...or, set your own edit limits
 #endif
 
 /**
@@ -1318,15 +1297,13 @@
  */
 #define DEFAULT_MAX_ACCELERATION \
   {                              \
-    500, 500, 100, 5000          \
-  }
+      500, 500, 100, 5000}
 
 // #define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
 #define MAX_ACCEL_EDIT_VALUES \
   {                           \
-    6000, 6000, 200, 20000    \
-  } // ...or, set your own edit limits
+      6000, 6000, 200, 20000} // ...or, set your own edit limits
 #endif
 
 /**
@@ -1373,8 +1350,7 @@
 #if ENABLED(LIMITED_JERK_EDITING)
 #define MAX_JERK_EDIT_VALUES \
   {                          \
-    20, 20, 0.6, 10          \
-  } // ...or, set your own edit limits
+      20, 20, 0.6, 10} // ...or, set your own edit limits
 #endif
 #endif
 
@@ -1599,44 +1575,37 @@
 
 #define Z_PROBE_ALLEN_KEY_DEPLOY_1 \
   {                                \
-    30.0, PRINTABLE_RADIUS, 100.0  \
-  }
+      30.0, PRINTABLE_RADIUS, 100.0}
 #define Z_PROBE_ALLEN_KEY_DEPLOY_1_FEEDRATE XY_PROBE_FEEDRATE
 
 #define Z_PROBE_ALLEN_KEY_DEPLOY_2 \
   {                                \
-    0.0, PRINTABLE_RADIUS, 100.0   \
-  }
+      0.0, PRINTABLE_RADIUS, 100.0}
 #define Z_PROBE_ALLEN_KEY_DEPLOY_2_FEEDRATE (XY_PROBE_FEEDRATE) / 10
 
-#define Z_PROBE_ALLEN_KEY_DEPLOY_3      \
-  {                                     \
-    0.0, (PRINTABLE_RADIUS)*0.75, 100.0 \
-  }
+#define Z_PROBE_ALLEN_KEY_DEPLOY_3 \
+  {                                \
+      0.0, (PRINTABLE_RADIUS) * 0.75, 100.0}
 #define Z_PROBE_ALLEN_KEY_DEPLOY_3_FEEDRATE XY_PROBE_FEEDRATE
 
 #define Z_PROBE_ALLEN_KEY_STOW_1 \
   {                              \
-    -64.0, 56.0, 23.0            \
-  } // Move the probe into position
+      -64.0, 56.0, 23.0} // Move the probe into position
 #define Z_PROBE_ALLEN_KEY_STOW_1_FEEDRATE XY_PROBE_FEEDRATE
 
 #define Z_PROBE_ALLEN_KEY_STOW_2 \
   {                              \
-    -64.0, 56.0, 3.0             \
-  } // Push it down
+      -64.0, 56.0, 3.0} // Push it down
 #define Z_PROBE_ALLEN_KEY_STOW_2_FEEDRATE (XY_PROBE_FEEDRATE) / 10
 
 #define Z_PROBE_ALLEN_KEY_STOW_3 \
   {                              \
-    -64.0, 56.0, 50.0            \
-  } // Move it up to clear
+      -64.0, 56.0, 50.0} // Move it up to clear
 #define Z_PROBE_ALLEN_KEY_STOW_3_FEEDRATE XY_PROBE_FEEDRATE
 
 #define Z_PROBE_ALLEN_KEY_STOW_4 \
   {                              \
-    0.0, 0.0, 50.0               \
-  }
+      0.0, 0.0, 50.0}
 #define Z_PROBE_ALLEN_KEY_STOW_4_FEEDRATE XY_PROBE_FEEDRATE
 
 #endif // Z_PROBE_ALLEN_KEY
@@ -1683,8 +1652,7 @@
  */
 #define NOZZLE_TO_PROBE_OFFSET \
   {                            \
-    -45, 10, -1.5              \
-  }
+      -45, -6, 0}
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
@@ -1916,16 +1884,16 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 296 // Nozzle is at X4 when homed
-#define Y_BED_SIZE 298 // Nozzle is at Y2 when homed
+#define X_BED_SIZE 300 // Nozzle is at X4 when homed
+#define Y_BED_SIZE 300 // Nozzle is at Y2 when homed
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS 4
-#define Y_MIN_POS 2
+#define X_MIN_POS 0
+#define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 319 // 15mm Extra space on the right end
-#define Y_MAX_POS 306 // 4mm Extra space behind the bed
-#define Z_MAX_POS 320
+#define X_MAX_POS 300 // 15mm Extra space on the right end
+#define Y_MAX_POS 300 // 4mm Extra space behind the bed
+#define Z_MAX_POS 400
 // #define I_MIN_POS 0
 // #define I_MAX_POS 50
 // #define J_MIN_POS 0
@@ -2281,22 +2249,18 @@
 #define CLIP_H 14 // Bed clip height, should be padded a few mm over its physical size
 
 // Obstacle Rectangles defined as { X1, Y1, X2, Y2 }
-#define OBSTACLE1                                                               \
-  {                                                                             \
-    (X_BED_SIZE) / 4 - (CLIP_W) / 2, 0, (X_BED_SIZE) / 4 + (CLIP_W) / 2, CLIP_H \
-  }
-#define OBSTACLE2                                                                     \
-  {                                                                                   \
-    (X_BED_SIZE) * 3 / 4 - (CLIP_W) / 2, 0, (X_BED_SIZE)*3 / 4 + (CLIP_W) / 2, CLIP_H \
-  }
-#define OBSTACLE3                                                                                         \
-  {                                                                                                       \
-    (X_BED_SIZE) / 4 - (CLIP_W) / 2, (Y_BED_SIZE) - (CLIP_H), (X_BED_SIZE) / 4 + (CLIP_W) / 2, Y_BED_SIZE \
-  }
-#define OBSTACLE4                                                                                               \
-  {                                                                                                             \
-    (X_BED_SIZE) * 3 / 4 - (CLIP_W) / 2, (Y_BED_SIZE) - (CLIP_H), (X_BED_SIZE)*3 / 4 + (CLIP_W) / 2, Y_BED_SIZE \
-  }
+#define OBSTACLE1 \
+  {               \
+      (X_BED_SIZE) / 4 - (CLIP_W) / 2, 0, (X_BED_SIZE) / 4 + (CLIP_W) / 2, CLIP_H}
+#define OBSTACLE2 \
+  {               \
+      (X_BED_SIZE) * 3 / 4 - (CLIP_W) / 2, 0, (X_BED_SIZE) * 3 / 4 + (CLIP_W) / 2, CLIP_H}
+#define OBSTACLE3 \
+  {               \
+      (X_BED_SIZE) / 4 - (CLIP_W) / 2, (Y_BED_SIZE) - (CLIP_H), (X_BED_SIZE) / 4 + (CLIP_W) / 2, Y_BED_SIZE}
+#define OBSTACLE4 \
+  {               \
+      (X_BED_SIZE) * 3 / 4 - (CLIP_W) / 2, (Y_BED_SIZE) - (CLIP_H), (X_BED_SIZE) * 3 / 4 + (CLIP_W) / 2, Y_BED_SIZE}
 
 // The probed grid must be inset for G29 J. This is okay, since it is
 // only used to compute a linear transformation for the mesh itself.
@@ -2335,8 +2299,7 @@
 #if ENABLED(LCD_BED_TRAMMING)
 #define BED_TRAMMING_INSET_LFRB \
   {                             \
-    30, 30, 30, 30              \
-  }                             // (mm) Left, Front, Right, Back insets
+      30, 30, 30, 30}           // (mm) Left, Front, Right, Back insets
 #define BED_TRAMMING_HEIGHT 0.0 // (mm) Z height of nozzle at tramming points
 #define BED_TRAMMING_Z_HOP 4.0  // (mm) Z height of nozzle between tramming points
 // #define BED_TRAMMING_INCLUDE_CENTER       // Move to the center after the last corner
@@ -2366,8 +2329,7 @@
  */
 #define BED_TRAMMING_LEVELING_ORDER \
   {                                 \
-    LF, RF, RB, LB                  \
-  }
+      LF, RF, RB, LB}
 #endif
 
 /**
@@ -2409,10 +2371,9 @@
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M       \
-  {                                \
-    (50 * 60), (50 * 60), (4 * 60) \
-  }
+#define HOMING_FEEDRATE_MM_M \
+  {                          \
+      (50 * 60), (50 * 60), (4 * 60)}
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -2569,10 +2530,9 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
 // Specify a park position as { X, Y, Z_raise }
-#define NOZZLE_PARK_POINT                  \
-  {                                        \
-    (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 \
-  }
+#define NOZZLE_PARK_POINT \
+  {                       \
+      (X_MIN_POS + 10), (Y_MAX_POS - 10), 20}
 #define NOZZLE_PARK_MOVE 0          // Park motion: 0 = XY Move, 1 = X Only, 2 = Y Only, 3 = X before Y, 4 = Y before X
 #define NOZZLE_PARK_Z_RAISE_MIN 2   // (mm) Always raise Z by at least this distance
 #define NOZZLE_PARK_XY_FEEDRATE 100 // (mm/s) X and Y axes feedrate (also used for delta Z axis)
@@ -3761,8 +3721,7 @@
 // If the servo can't reach the requested position, increase it.
 #define SERVO_DELAY \
   {                 \
-    300             \
-  }
+      300}
 
 // Only power servos during movement, otherwise leave off to prevent jitter
 // #define DEACTIVATE_SERVOS_AFTER_MOVE
