@@ -1,1 +1,0 @@
-Ultimate Cam Mount by EdWorks on Thingiverse: https://www.thingiverse.com/thing:3155083
